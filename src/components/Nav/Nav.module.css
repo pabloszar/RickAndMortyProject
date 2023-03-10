@@ -1,0 +1,12 @@
+.nav {
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    padding-right: 3px;
+    background-color: #B8B5AE;
+    border: 1.7px solid #242424;
+    border-radius: 5px 5px 20px 5px;
+}
+.container {
+    border-radius: 5px 0px 20px 5px;
+    background-color: #929085;
+}
