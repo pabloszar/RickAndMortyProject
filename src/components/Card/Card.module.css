@@ -32,6 +32,12 @@
     border-bottom: .8px solid #242424;
 }
 
+.id {
+    font-size: 12px;
+    text-align: start;
+    color: #242424;
+}
+
 .nameContainer {
     height: fit-content;
     grid-column: 2 / 3;

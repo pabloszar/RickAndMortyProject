@@ -1,4 +1,6 @@
 .App {
+   max-height: max-content;
+   height: fit-content;
    text-align: center;
-   background-color: #FDB899;
+   background-color: #00514F;
 }

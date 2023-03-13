@@ -6,9 +6,11 @@ export default function Cards({characters, onClose}) {
 
    return (
    <div className={style.container}>
+      
       {characters.map(character => {
          return (
             <Card
+               id={character.id}
                name={character.name}
                species={character.species}
                gender={character.gender}

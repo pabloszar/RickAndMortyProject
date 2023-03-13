@@ -1,7 +1,13 @@
 import './App.css'
-import Cards from './components/Cards/Cards.jsx'
+import Home from './components/views/home/home';
+import About from './components/views/aboutView/about';
+import Landing from './components/views/Landing/start';
+import Details from './components/views/detailsView/details';
+
 import Nav from './components/Nav/Nav';
+
 import {useState} from "react";
+import {Routes, Route} from "react-router-dom";
 
 
 function App () {
@@ -24,30 +30,27 @@ function App () {
        });
  }
 
-function onClose (characterName) {
-  //Encontrar el index del objeto (character), teniendo una propiedad del objeto
-  const index = characters.findIndex(character => character.name === characterName);
-  const firstArr = characters.splice(0, index);
-  const secondArr = characters.splice(index + 1);
-  const newArr = firstArr.concat(secondArr);
-  setCharacters( () => [...newArr]);
-}
+  function onClose (characterName) {
+    //Encontrar el index del objeto (character), teniendo una propiedad del objeto
+    const index = characters.findIndex(character => character.name === characterName);
+    const firstArr = characters.splice(0, index);
+    const secondArr = characters.splice(index + 1);
+    const newArr = firstArr.concat(secondArr);
+    setCharacters( () => [...newArr]);
+  }
+
 
   return (
     <div className='App' style={{ padding: '25px' }}>
-      <div>
-        <Nav onSearch={onSearch}/>
-      </div>
-      <hr />
-      <div>
-        <Cards
-          characters={characters}
-          onClose={onClose}
-        />
-      </div>
-      <hr />
+      <Nav onSearch={onSearch}/>
+      <Routes>
+        <Route path='/' element={<Landing/>} />
+        <Route path='/home' element={<Home characters={characters} onClose={onClose} />}></Route>
+        <Route path='/about' element={<About/>}></Route>
+        <Route path='/details/:detailId' element={<Details/>} />
+      </Routes>
     </div>
   )
 }
 
-export default App
+export default App;

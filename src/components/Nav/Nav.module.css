@@ -9,4 +9,7 @@
 .container {
     border-radius: 5px 0px 20px 5px;
     background-color: #929085;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
