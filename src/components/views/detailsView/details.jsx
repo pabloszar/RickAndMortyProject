@@ -39,7 +39,7 @@ const Details = () => {
       <div>  
          {character.name ? (  //?------------------ SI EXISTE EJECUTA
          <>
-         <div className={style.Container}>
+         <div className={style.container}>
                 
             <div className={style.renderImage}>
                <img src={character.image} alt="" />
@@ -50,10 +50,10 @@ const Details = () => {
 
             <div className={style.details}>
                <h1>{character.name}</h1>
-               <h2>{character.status}</h2>
-               <h2>{character.specie}</h2>
-               <h2>{character.gender}</h2>
-               <h2>{character.origin?.name}</h2>
+               <h2>Status: {character.status}</h2>
+               <h2>Specie: {character.specie}</h2>
+               <h2>Gender: {character.gender}</h2>
+               <h2>Origin: {character.origin?.name}</h2>
             </div>
          </div>
          </>

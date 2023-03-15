@@ -5,9 +5,10 @@ import Landing from './components/views/Landing/start';
 import Details from './components/views/detailsView/details';
 
 import Nav from './components/Nav/Nav';
+import Form from './components/Form/Form';
 
-import {useState} from "react";
-import {Routes, Route} from "react-router-dom";
+import {useState, useEffect} from "react";
+import {Routes, Route, useNavigate} from "react-router-dom";
 
 
 function App () {
@@ -39,12 +40,29 @@ function App () {
     setCharacters( () => [...newArr]);
   }
 
+  //--------------Form access to app----------------------
+  const navigate = useNavigate();
+  const [access, setAccess] = useState(false);
+  const username = 'psp301098@gmail.com';
+  const password = '301098pA';
+
+  function login(userData) {
+    if (userData.password === password && userData.username === username) {
+        setAccess(true);
+        navigate('/home');
+    }
+  }
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access]);
+//-----------------------------------------------------------------
 
   return (
     <div className='App' style={{ padding: '25px' }}>
       <Nav onSearch={onSearch}/>
       <Routes>
-        <Route path='/' element={<Landing/>} />
+        {/* <Route path='/' element={<Landing/>} /> */}
+        <Route path='/' element={<Form login={login} />} />
         <Route path='/home' element={<Home characters={characters} onClose={onClose} />}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/details/:detailId' element={<Details/>} />
