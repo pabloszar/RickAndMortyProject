@@ -3,6 +3,7 @@ import Home from './components/views/home/home';
 import About from './components/views/aboutView/about';
 import Landing from './components/views/Landing/start';
 import Details from './components/views/detailsView/details';
+import Favorites from './components/views/Favorites/Favorites';
 
 import Nav from './components/Nav/Nav';
 import Form from './components/Form/Form';
@@ -43,8 +44,8 @@ function App () {
   //--------------Form access to app----------------------
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const username = 'psp301098@gmail.com';
-  const password = '301098pA';
+  const username = 'pabloCorreo@gmail.com';
+  const password = 'pablo123';
 
   function login(userData) {
     if (userData.password === password && userData.username === username) {
@@ -66,6 +67,7 @@ function App () {
         <Route path='/home' element={<Home characters={characters} onClose={onClose} />}></Route>
         <Route path='/about' element={<About/>}></Route>
         <Route path='/details/:detailId' element={<Details/>} />
+        <Route path='/favorites' element={<Favorites/>}></Route>
       </Routes>
     </div>
   )
